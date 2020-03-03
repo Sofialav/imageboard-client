@@ -5,12 +5,14 @@ import store from "./store";
 import "./App.css";
 import ListContainer from "./components/ListContainer";
 import UsersListContainer from "./components/UsersListContainer";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <div>
+          <NavBar />
           <Route path="/" exact component={ListContainer} />
           <Route path="/users" exact component={UsersListContainer} />
         </div>
