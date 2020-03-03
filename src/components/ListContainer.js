@@ -14,21 +14,18 @@ class ListContainer extends React.Component {
     if (!this.props.images) {
       return <div>Loading...</div>;
     }
-    const displayImages = this.props.images.map(image => {
-      return <List images={image} />;
-    });
     if (!this.props.user) {
       return (
         <div>
           <LoginFormContainer />
-          <div>{displayImages}</div>
+          <List images={this.props.images} />
         </div>
       );
     }
     return (
       <div>
         <CreateFormContainer />
-        <div>{displayImages}</div>
+        <List images={this.props.images} />
       </div>
     );
   }

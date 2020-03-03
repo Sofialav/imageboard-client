@@ -50,8 +50,8 @@ export const login = (email, password) => dispatch => {
   request
     .post(`${baseUrl}/login`)
     .send({ email, password })
-    .then(res => {
-      const action = loginUser(res.body.jwt);
+    .then(response => {
+      const action = loginUser(response.body.jwt);
       dispatch(action);
     })
     .catch(console.error);
