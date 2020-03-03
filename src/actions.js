@@ -1,5 +1,5 @@
 import request from "superagent";
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://fathomless-temple-91569.herokuapp.com";
 
 // get images
 export const allImages = payload => {
