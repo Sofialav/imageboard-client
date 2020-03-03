@@ -22,7 +22,6 @@ class CreateFormContainer extends React.Component {
     });
   };
   render() {
-    console.log("create form");
     return (
       <CreateForm
         onSubmit={this.onSubmit}

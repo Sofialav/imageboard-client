@@ -39,3 +39,20 @@ export const createImage = data => dispatch => {
     })
     .catch(console.error);
 };
+// login
+export const loginUser = payload => {
+  return {
+    type: "LOGIN_USER",
+    payload
+  };
+};
+export const login = (email, password) => dispatch => {
+  request
+    .post(`${baseUrl}/login`)
+    .send({ email, password })
+    .then(res => {
+      const action = loginUser(res.body.jwt);
+      dispatch(action);
+    })
+    .catch(console.error);
+};
