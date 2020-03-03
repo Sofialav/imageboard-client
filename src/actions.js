@@ -77,3 +77,25 @@ export const signup = data => dispatch => {
     })
     .catch(console.error);
 };
+// get users
+export const allUsers = payload => {
+  return {
+    type: "ALL_USERS",
+    payload
+  };
+};
+export function getUsers() {
+  return async function thunk(dispatch, getState) {
+    try {
+      const state = getState();
+      const { users } = state;
+      if (!users.length) {
+        const response = await request.get(`${baseUrl}/users`);
+        const action = allUsers(response.body);
+        dispatch(action);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}

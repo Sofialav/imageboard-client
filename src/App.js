@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import "./App.css";
 import ListContainer from "./components/ListContainer";
+import UsersListContainer from "./components/UsersListContainer";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <Provider store={store}>
         <div>
           <Route path="/" exact component={ListContainer} />
+          <Route path="/users" exact component={UsersListContainer} />
         </div>
       </Provider>
     );
