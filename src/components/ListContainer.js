@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import List from "./List";
 import CreateFormContainer from "./CreateFormContainer";
 import LoginFormContainer from "./LoginFormContainer";
+import SignupFormContainer from "./SignupFormContainer";
 
 class ListContainer extends React.Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class ListContainer extends React.Component {
       return (
         <div>
           <LoginFormContainer />
+          <SignupFormContainer />
           <List images={this.props.images} />
         </div>
       );

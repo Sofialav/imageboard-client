@@ -60,3 +60,19 @@ export const login = data => dispatch => {
     })
     .catch(console.error);
 };
+// signup
+export const addUser = () => {
+  return {
+    type: "ADD_USER"
+  };
+};
+export const signup = data => dispatch => {
+  request
+    .post(`${baseUrl}/users`)
+    .send(data)
+    .then(response => {
+      const action = addUser();
+      dispatch(action);
+    })
+    .catch(console.error);
+};
