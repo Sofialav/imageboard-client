@@ -50,10 +50,10 @@ export const loginUser = payload => {
     payload
   };
 };
-export const login = (email, password) => dispatch => {
+export const login = data => dispatch => {
   request
     .post(`${baseUrl}/login`)
-    .send({ email, password })
+    .send(data)
     .then(response => {
       const action = loginUser(response.body.jwt);
       dispatch(action);
