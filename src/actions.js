@@ -51,6 +51,7 @@ export const loginUser = payload => {
   };
 };
 export const login = data => dispatch => {
+  console.log("ITS ALIVE");
   request
     .post(`${baseUrl}/login`)
     .send(data)

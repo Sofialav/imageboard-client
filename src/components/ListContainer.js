@@ -2,9 +2,6 @@ import React from "react";
 import { getImages } from "../actions";
 import { connect } from "react-redux";
 import List from "./List";
-import CreateFormContainer from "./CreateFormContainer";
-import LoginFormContainer from "./LoginFormContainer";
-import SignupFormContainer from "./SignupFormContainer";
 
 class ListContainer extends React.Component {
   componentDidMount() {
@@ -15,19 +12,9 @@ class ListContainer extends React.Component {
     if (!this.props.images) {
       return <div>Loading...</div>;
     }
-    if (!this.props.user) {
-      return (
-        <div>
-          <LoginFormContainer />
-          <SignupFormContainer />
-          <List images={this.props.images} />
-        </div>
-      );
-    }
     return (
       <div>
-        <CreateFormContainer />
-        <List images={this.props.images} />
+        <List images={this.props.images} user={this.props.user} />
       </div>
     );
   }
