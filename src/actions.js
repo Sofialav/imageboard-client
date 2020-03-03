@@ -29,9 +29,13 @@ export const newImage = payload => {
     payload
   };
 };
-export const createImage = data => dispatch => {
+export const createImage = data => (dispatch, getState) => {
+  const state = getState();
+  const { user } = state;
   request
     .post(`${baseUrl}/images`)
+    // setting header
+    .set({ Authorization: `Bearer ${user}` })
     .send(data)
     .then(response => {
       const action = newImage(response.body);
